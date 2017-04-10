@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% for blog in top5_blog_posts %}
+        <div class="blog">
+            <div class="blog-title">{{blog.title}}</div>
+            <pre class="blog-body">{{blog.body}}</pre>
+        </div>
+    {% endfor %}
+
+{% endblock %}
