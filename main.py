@@ -25,10 +25,11 @@ class Blog(db.Model):
     created = db.DateTimeProperty(auto_now_add = True)
 
 class BlogMain(Handler):
-    def render_blog(self, title="", body="", error=""):
+    def render_blog(self, blog_id="", title="", body="", error=""):
         top5_blog_posts = db.GqlQuery("SELECT * FROM Blog ORDER BY created DESC LIMIT 5 ")
 
-        self.render("blog.html", title=title, body=body, error=error, top5_blog_posts=top5_blog_posts)
+        #self.render("blog.html", blog_id=ID, title=title, body=body, error=error, top5_blog_posts=top5_blog_posts)
+        self.render("blog.html", top5_blog_posts=top5_blog_posts)
 
     def get(self):
         self.render_blog()
